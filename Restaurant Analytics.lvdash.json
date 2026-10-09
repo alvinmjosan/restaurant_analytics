@@ -67,6 +67,7 @@
       "name": "a72a097a",
       "displayName": "dim_customers_sql",
       "queryLines": [
+        "-- dim_customers_sql\r\n",
         "select * from ws_dbxproject.`02_silver`.dim_customers\r\n",
         "where join_date between :DATE_RANGE.min and :DATE_RANGE.max;"
       ],
@@ -96,6 +97,7 @@
       "name": "842b29b5",
       "displayName": "fact_orders_sql",
       "queryLines": [
+        "-- fact_orders_sql\r\n",
         "select * from ws_dbxproject.`02_silver`.fact_orders\r\n",
         "where order_date between :DATE_RANGE.min and :DATE_RANGE.max;"
       ],
@@ -125,6 +127,7 @@
       "name": "223878e2",
       "displayName": "d_sales_summary_sql",
       "queryLines": [
+        "-- d_sales_summary_sql\r\n",
         "select * from ws_dbxproject.`03_gold`.d_sales_summary\r\n",
         "where order_date between :DATE_RANGE.min and :DATE_RANGE.max;"
       ],
@@ -175,6 +178,7 @@
       "name": "e8beff89",
       "displayName": "fact_order_items_sql",
       "queryLines": [
+        "-- fact_order_items_sql\r\n",
         "select item_name,\r\n",
         "sum(quantity) as total_qty_sold\r\n",
         "from ws_dbxproject.`02_silver`.fact_order_items\r\n",
@@ -209,6 +213,7 @@
       "name": "53f10ca8",
       "displayName": "fact_order_items_1_sql",
       "queryLines": [
+        "-- fact_order_items_1_sql\r\n",
         "select * from ws_dbxproject.`02_silver`.fact_order_items\r\n",
         "where order_date between :Date_range.min and :Date_range.max"
       ],
@@ -259,6 +264,7 @@
       "name": "39960ffa",
       "displayName": "linesql2",
       "queryLines": [
+        "-- linesql2\r\n",
         "select rr.restaurant_name,\r\n",
         "date(review_timestamp) as review_date,\r\n",
         "count(distinct case when sentiment = 'positive' then order_id else null end) as positive_review_count,\r\n",
@@ -275,6 +281,7 @@
       "name": "65993e28",
       "displayName": "ratingcount",
       "queryLines": [
+        "-- ratingcount\r\n",
         "select restaurant_name,\r\n",
         "rating_label,\r\n",
         "rating_count\r\n",
@@ -293,6 +300,7 @@
       "name": "fcf11f8e",
       "displayName": "issue_summary",
       "queryLines": [
+        "-- issue_summary\r\n",
         "select dr.name as restaurant_name,\r\n",
         "count(distinct case when fr.issue_delivery = true then order_id else null end) as count_issue_delivery,\r\n",
         "count(distinct case when fr.issue_food_quality = true then order_id else null end) as count_issue_food_quality,\r\n",
@@ -308,6 +316,7 @@
       "name": "9b4a2417",
       "displayName": "Recent Positive",
       "queryLines": [
+        "-- Recent Positive\r\n",
         "select dr.name as restaurant_name,\r\n",
         "review_text,review_timestamp\r\n",
         "from ws_dbxproject.`02_silver`.fact_reviews  fr\r\n",
@@ -321,6 +330,7 @@
       "name": "7511650c",
       "displayName": "Recent Negative",
       "queryLines": [
+        "-- Recent Negative\r\n",
         "select dr.name as restaurant_name,\r\n",
         "review_text,review_timestamp\r\n",
         "from ws_dbxproject.`02_silver`.fact_reviews  fr\r\n",
