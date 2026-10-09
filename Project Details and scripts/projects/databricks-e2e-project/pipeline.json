@@ -1,0 +1,19 @@
+{
+  "name": "gw_ingestion_silver",
+  "catalog": "ws_dbxproject",
+  "schema": "00_landing",
+  "gateway_definition": {
+    "connection_name": "conn_restaurantops",
+    "gateway_storage_catalog": "ws_dbxproject",
+    "gateway_storage_schema": "00_landing",
+    "gateway_storage_name": "gw_ingestion_silver"
+  },
+  "clusters": [
+    {
+      "label": "default",
+      "policy_id": "0005FF9B37693042",
+      "apply_policy_default_values": true
+    }
+  ],
+  "continuous": true
+}
